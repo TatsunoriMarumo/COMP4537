@@ -104,6 +104,7 @@ class Game {
     }, 1000 * this.numberOfButtons);
   }
 
+  // This code was assisted by ChatGPT.
   shuffleButtonsWithInterval(onComplete) {
     let counter = 0;
 
@@ -142,12 +143,12 @@ class Game {
       this.showAllNumbers();
       this.ui.showMessage(messages.gameOver);
     }
-    this.checkGameClear()
+    this.checkGameClear();
   }
 
   checkGameClear() {
     if (this.currentButtonOrder > this.numberOfButtons) {
-        this.ui.messageArea.classList.add("rainbow-text")
+      this.ui.messageArea.classList.add("rainbow-text");
       this.ui.showMessage(messages.gameClear);
     }
   }
@@ -170,6 +171,7 @@ class Game {
     });
   }
 
+  // This code was assisted by ChatGPT.
   getRandomColors(n) {
     const colors = [
       "Aquamarine",
@@ -192,6 +194,7 @@ class Game {
     return colors.slice(0, n);
   }
 
+  // This code was assisted by ChatGPT.
   shuffleButtonsPosition() {
     const gameAreaRect = this.gameArea.getBoundingClientRect();
 

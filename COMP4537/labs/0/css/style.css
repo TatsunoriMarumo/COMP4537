@@ -48,6 +48,7 @@ body {
     position: absolute;
 }
 
+/*This code was assisted by ChatGPT.*/
 .rainbow-text {
     background-image: linear-gradient(90deg,red, orange, yellow, green, blue, indigo, violet, red);
     background-size: 300%;
