@@ -30,13 +30,13 @@ class Note {
 
 class Writer {
   constructor() {
-    this.title = document.getElementById("title")
+    this.title = document.getElementById("title");
     this.timestamp = document.getElementById("timestamp");
     this.noteList = document.getElementById("note-list");
     this.addBtn = document.getElementById("add-btn");
     this.backBtn = document.getElementById("back-btn");
 
-    this.title.innerText = messages.noteTitle.replace("%1", "Writer")
+    this.title.innerText = messages.noteTitle.replace("%1", "Writer");
 
     this.addBtn.innerText = messages.addBtnText;
     this.backBtn.innerText = messages.backBtnText;
@@ -81,18 +81,27 @@ class Writer {
       return;
     }
     const timestamp = this.getCurrentTime();
-    this.timestamp.innerText = messages.storedTimeStamp.replace("%1", timestamp);
+    this.timestamp.innerText = messages.storedTimeStamp.replace(
+      "%1",
+      timestamp
+    );
     const notes = this.getNonEmptyNotes();
     localStorage.setItem("timestamp", timestamp);
     localStorage.setItem("notes", JSON.stringify(notes));
   }
 
   load() {
+    if (typeof Storage == "undefined") {
+      return;
+    }
     const timestamp = localStorage.getItem("timestamp") || "";
-    this.timestamp.innerText = messages.storedTimeStamp.replace("%1", timestamp);
+    this.timestamp.innerText = messages.storedTimeStamp.replace(
+      "%1",
+      timestamp
+    );
     const notes = JSON.parse(localStorage.getItem("notes"));
 
-    this.clearNotes()
+    this.clearNotes();
 
     notes.forEach((text) => {
       const note = this.createNote(text);
@@ -106,6 +115,7 @@ class Writer {
     }
   }
 
+  /*This code was assisted by ChatGPT.*/
   getCurrentTime() {
     const now = new Date();
 
@@ -123,11 +133,12 @@ class Writer {
     const textareas = this.noteList.querySelectorAll("li div textarea");
     const notes = Array.from(textareas)
       .map((textarea) => textarea.value.trim())
-      .filter((textarea) => textarea.value !== "");
+      .filter((value) => value !== "");
 
     return notes;
   }
 
+  /*This code was assisted by ChatGPT.*/
   startSaveTimer() {
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {

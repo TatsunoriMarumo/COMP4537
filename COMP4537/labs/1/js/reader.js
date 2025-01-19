@@ -2,12 +2,12 @@ import { messages } from "../lang/messages/en/user.js";
 
 class Reader {
   constructor() {
-    this.title = document.getElementById("title")
+    this.title = document.getElementById("title");
     this.timestamp = document.getElementById("timestamp");
     this.noteList = document.getElementById("note-list");
     this.backBtn = document.getElementById("back-btn");
 
-    this.title.innerText = messages.noteTitle.replace("%1", "Reader")
+    this.title.innerText = messages.noteTitle.replace("%1", "Reader");
 
     this.backBtn.innerText = messages.backBtnText;
     this.backBtn.addEventListener("click", () => {
@@ -24,8 +24,14 @@ class Reader {
   }
 
   loadData() {
+    if (typeof Storage == "undefined") {
+      return;
+    }
     const timestamp = localStorage.getItem("timestamp") || "";
-    this.timestamp.innerText = messages.updatedTimeStamp.replace("%1", timestamp);
+    this.timestamp.innerText = messages.updatedTimeStamp.replace(
+      "%1",
+      timestamp
+    );
     const notes = JSON.parse(localStorage.getItem("notes"));
     this.notes = notes;
   }
