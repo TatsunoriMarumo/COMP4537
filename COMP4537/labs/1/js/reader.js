@@ -32,7 +32,7 @@ class Reader {
       "%1",
       timestamp
     );
-    const notes = JSON.parse(localStorage.getItem("notes"));
+    const notes = JSON.parse(localStorage.getItem("notes")) || [];
     this.notes = notes;
   }
 
@@ -53,7 +53,8 @@ class Reader {
 
   displayNotes() {
     this.clearNotes();
-    this.notes.forEach((text) => {
+    this.notes.forEach((obj) => {
+      const text = obj.text;
       const readOnlyNote = this.createReadOnlyNote(text);
       this.noteList.appendChild(readOnlyNote);
     });

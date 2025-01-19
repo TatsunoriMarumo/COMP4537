@@ -76,6 +76,7 @@ class Writer {
     return li;
   }
 
+  /*This code was assisted by ChatGPT.*/
   save() {
     if (typeof Storage == "undefined") {
       return;
@@ -85,7 +86,7 @@ class Writer {
       "%1",
       timestamp
     );
-    const notes = this.getNonEmptyNotes();
+    const notes = this.getNonEmptyNotes().map((text) => ({ text }));
     localStorage.setItem("timestamp", timestamp);
     localStorage.setItem("notes", JSON.stringify(notes));
   }
@@ -99,11 +100,12 @@ class Writer {
       "%1",
       timestamp
     );
-    const notes = JSON.parse(localStorage.getItem("notes"));
+    const notes = JSON.parse(localStorage.getItem("notes")) || [];
 
     this.clearNotes();
 
-    notes.forEach((text) => {
+    notes.forEach((obj) => {
+      const text = obj.text;
       const note = this.createNote(text);
       this.noteList.appendChild(note);
     });
