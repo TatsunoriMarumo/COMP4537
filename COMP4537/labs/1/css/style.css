@@ -1,0 +1,142 @@
+body {
+    font-family: sans-serif;
+    background-color: #f3f3f3;
+    /* Light gray background */
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border-radius: 8px;
+    border: none;
+    padding: 8px 16px;
+    /* Fixed the comma issue: now space-separated */
+    margin: 2px;
+    cursor: pointer;
+    background-color: #1976d2;
+    /* Subtle blue background */
+    color: #ffffff;
+    /* White text */
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #155a9c;
+    /* Slightly darker on hover */
+}
+
+#title {
+    text-align: center;
+}
+
+#main-container {
+    border: 2px solid #000;
+    width: 80%;
+    margin: 20px auto;
+    padding: 8px 8px 8px 8px;
+    min-height: max-content;
+    background-color: #ffffff;
+    /* White container on gray background */
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    border-radius: 8px;
+}
+
+#timestamp-area {
+    display: flex;
+    justify-content: flex-end;
+    /* Move timestamp to the right */
+}
+
+#timestamp {
+    margin: 0;
+    padding: 8px;
+    font-weight: bold;
+}
+
+#note-area {
+    padding: 8px;
+    margin: 8px;
+}
+
+#note-list {
+    list-style: none;
+    padding: 0;
+}
+
+.note-elements {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.note {
+    background-color: cornflowerblue;
+    border: 2px solid darkslateblue;
+    /* Show a solid border for clarity */
+    color: white;
+    padding: 6px 16px;
+    margin: 6px;
+    border-radius: 4px;
+    min-height: 60px;
+    font-size: 24px;
+    /* Ensures a more comfortable note area */
+    resize: vertical;
+    /* Allow vertical resizing if needed */
+    width: 100%;
+    /* Make it expand horizontally */
+    box-sizing: border-box;
+}
+
+/* Base button style remains as is, but these rules override the colors. */
+
+#btn-area {
+    /* Flex container to help with alignment */
+    display: flex;
+    align-items: center;
+    /* Add some spacing if needed */
+    margin: 8px;
+}
+
+/* Add Button (LimeGreen) */
+#add-btn {
+    background-color: limegreen;
+    margin-left: 0;
+    /* Flush left alignment */
+    /* Keep the same transition effect */
+    transition: background-color 0.3s ease;
+}
+
+#add-btn:hover {
+    background-color: #32cd32;
+    /* Slightly darker lime green on hover */
+}
+
+/* Remove Button (Coral) 
+   (Used in writer page, .remove-btn is typically assigned in your JS class) */
+.remove-btn {
+    background-color: coral !important;
+    transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+    background-color: #f25b3f;
+    /* Slightly darker coral on hover */
+}
+
+/* Back Button (Crimson), centered. 
+   Using 'margin: 0 auto' plus 'display: block' helps center it horizontally 
+   in #btn-area if no other conflicting flex rules. */
+#back-btn {
+    background-color: crimson;
+    margin: 0 auto;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+#back-btn:hover {
+    background-color: #b51130;
+    /* Darker crimson on hover */
+}
